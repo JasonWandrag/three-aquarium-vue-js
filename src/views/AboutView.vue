@@ -66,7 +66,7 @@ scene.add(directionalLight);
 
 // Setup Floor
 const floorGeo = new PlaneGeometry(1000, 1000);
-const floorMat = new MeshStandardMaterial({ color: guiOptions.floorColor });
+const floorMat = new MeshStandardMaterial({ color: 0xb3bf });
 const floor = new Mesh(floorGeo, floorMat);
 floor.rotation.x = -0.5 * Math.PI;
 floor.receiveShadow = true;
