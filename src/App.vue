@@ -7,8 +7,8 @@ import HelloWorld from './components/HelloWorld.vue'
   <header>
     <div class="wrapper">
       <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
+        <RouterLink to="/">Aquarium</RouterLink>
+        <RouterLink to="/about">Soccer</RouterLink>
       </nav>
     </div>
   </header>
@@ -17,5 +17,14 @@ import HelloWorld from './components/HelloWorld.vue'
 </template>
 
 <style scoped>
-
+nav{
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+}
 </style>

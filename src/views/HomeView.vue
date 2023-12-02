@@ -22,7 +22,7 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import * as CANNON from "cannon-es";
 import * as YUKA from "yuka";
-import { onMounted, ref } from "vue";
+import { onMounted, onUnmounted, ref } from "vue";
 import { testData } from "../lib/constants";
 import { getRandomNumberBetween } from "../lib/helpers";
 
@@ -212,6 +212,25 @@ renderer.setAnimationLoop(animate);
 onMounted(() => {
   if (canvas.value) {
     canvas.value.appendChild(renderer.domElement);
+  }
+});
+// Cleanup on component unmount
+onUnmounted(() => {
+  // Stop animation loop
+  renderer.setAnimationLoop(null);
+
+  // Dispose of Three.js resources
+  renderer.dispose();
+  
+  // Dispose of Cannon.js resources
+  world.removeEventListener('postStep', animate);
+
+  // Additional cleanup if needed
+  // ...
+
+  // Clear the canvas
+  if (canvas.value) {
+    canvas.value.innerHTML = '';
   }
 });
 </script>
